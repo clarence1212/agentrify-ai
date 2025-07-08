@@ -1,1 +1,2700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Elias Kairos Chen - Agentrify.AI | Strategic GenAI Consulting & Autonomous Systems</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            --dark-gradient: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 100%);
+            --accent-blue: #00d4ff;
+            --accent-purple: #8b5cf6;
+            --accent-gold: #f59e0b;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-dark: #1f2937;
+            --background-dark: #0a0a0a;
+            --background-light: #ffffff;
+            --background-gray: #f8fafc;
+            --background-card: rgba(255, 255, 255, 0.05);
+            --border-glow: rgba(0, 212, 255, 0.3);
+            --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --card-hover-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            overflow-x: hidden;
+            background: var(--background-dark);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .nav-cta {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--dark-gradient);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23667eea" stop-opacity="0.15"/><stop offset="100%" stop-color="%23764ba2" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="300" fill="url(%23a)"/><circle cx="800" cy="600" r="200" fill="url(%23a)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 0.5rem 1.5rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            font-size: 0.9rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--text-secondary);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            display: block;
+            margin-bottom: 0.5rem;
+            background: var(--secondary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            color: var(--text-secondary);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-blue);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--accent-blue);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-light {
+            background: var(--background-light);
+            color: var(--text-dark);
+        }
+
+        .section-gray {
+            background: var(--background-gray);
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-title.gradient {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Platform Cards */
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .platform-card {
+            background: var(--background-card);
+            border-radius: 24px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .platform-card.light {
+            background: white;
+            border: 1px solid #e5e7eb;
+            color: var(--text-dark);
+        }
+
+        .platform-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 25px 50px rgba(0, 212, 255, 0.15);
+        }
+
+        .platform-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .platform-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .platform-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .platform-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .platform-description {
+            opacity: 0.8;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .platform-features {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .platform-features li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            opacity: 0.8;
+        }
+
+        .platform-features li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+        }
+
+        /* Technology Infrastructure Styles */
+        .architecture-showcase {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 3rem;
+            margin: 3rem 0;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .architecture-showcase.light {
+            background: white;
+            border: 1px solid #e5e7eb;
+            color: var(--text-dark);
+        }
+
+        .architecture-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .architecture-subtitle {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .architecture-layers {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .layer-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 2rem;
+            border-left: 5px solid var(--accent-blue);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .layer-card.light {
+            background: var(--background-gray);
+            color: var(--text-dark);
+        }
+
+        .layer-card:hover {
+            transform: translateX(10px);
+            box-shadow: var(--card-hover-shadow);
+            border-left-color: var(--accent-gold);
+        }
+
+        .layer-number {
+            display: inline-flex;
+            background: var(--primary-gradient);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .layer-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .layer-description {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .layer-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background: var(--accent-blue);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--dark-gradient);
+            color: white;
+            padding: 6rem 0;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: 900;
+            color: white;
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-title {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .profile-credentials {
+            list-style: none;
+            text-align: left;
+        }
+
+        .profile-credentials li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .profile-credentials li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+        }
+
+        .about-text h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta .btn-primary {
+            background: white;
+            color: var(--accent-blue);
+        }
+
+        .cta .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: var(--background-dark);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            padding: 1.5rem;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-blue);
+        }
+
+        .contact-item h3 {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .contact-item p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            background: var(--background-dark);
+            color: white;
+            margin: 2% auto;
+            padding: 0;
+            border-radius: 24px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .modal-header {
+            background: var(--primary-gradient);
+            padding: 2rem;
+            border-radius: 24px 24px 0 0;
+            position: relative;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .close {
+            color: white;
+            float: right;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            background: none;
+            border: none;
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+        }
+
+        .close:hover {
+            opacity: 0.7;
+        }
+
+        .whitepaper-content h3 {
+            color: var(--accent-blue);
+            margin: 2rem 0 1rem 0;
+            font-weight: 700;
+        }
+
+        .whitepaper-content h4 {
+            color: var(--accent-gold);
+            margin: 1.5rem 0 0.75rem 0;
+            font-weight: 600;
+        }
+
+        .whitepaper-content ul, .whitepaper-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .whitepaper-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        /* Enhanced Visual Styles */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 60% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        /* Neural Network Background Animation */
+        .neural-network {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .neural-node {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: pulse-node 3s ease-in-out infinite;
+        }
+
+        .neural-connection {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+            opacity: 0.3;
+            animation: data-flow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-node {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.5); opacity: 1; }
+        }
+
+        @keyframes data-flow {
+            0% { transform: scaleX(0); opacity: 0; }
+            50% { transform: scaleX(1); opacity: 0.6; }
+            100% { transform: scaleX(0); opacity: 0; }
+        }
+
+        /* Enhanced Platform Icons */
+        .platform-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 4px 8px rgba(102, 126, 234, 0.3));
+            transition: all 0.3s ease;
+        }
+
+        .platform-card:hover .platform-icon {
+            transform: scale(1.1) rotate(5deg);
+            filter: drop-shadow(0 8px 16px rgba(102, 126, 234, 0.5));
+        }
+
+        /* Enhanced Statistics with Charts */
+        .stat-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shine 3s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        .stat-chart {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--secondary-gradient);
+            transform-origin: left;
+            animation: chart-fill 2s ease-out;
+        }
+
+        @keyframes chart-fill {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        /* Interactive Architecture Visualization */
+        .architecture-layers {
+            position: relative;
+        }
+
+        .architecture-layers::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent-blue), var(--accent-purple));
+            transform: translateX(-50%);
+            opacity: 0.3;
+        }
+
+        .layer-card {
+            position: relative;
+        }
+
+        .layer-card::after {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            width: 20px;
+            height: 2px;
+            background: var(--accent-blue);
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .layer-card:hover::after {
+            opacity: 1;
+        }
+
+        /* Enhanced Industry Cards with Visual Indicators */
+        .platform-card.light {
+            position: relative;
+            overflow: visible;
+        }
+
+        .platform-card.light::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--primary-gradient);
+            border-radius: 22px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .platform-card.light:hover::before {
+            opacity: 0.1;
+        }
+
+        /* Progress Bars for Metrics */
+        .metric-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: var(--primary-gradient);
+            border-radius: 0 0 8px 8px;
+            animation: progress-fill 1.5s ease-out;
+        }
+
+        @keyframes progress-fill {
+            from { width: 0%; }
+            to { width: var(--progress-width, 100%); }
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float-random 8s ease-in-out infinite;
+        }
+
+        @keyframes float-random {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(10px, -10px) rotate(90deg); }
+            50% { transform: translate(-5px, -20px) rotate(180deg); }
+            75% { transform: translate(-10px, -5px) rotate(270deg); }
+        }
+
+        /* Enhanced Button Styles */
+        .btn-primary, .btn-secondary {
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .btn-primary::before, .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before, .btn-secondary:hover::before {
+            left: 100%;
+        }
+
+        /* Glowing Effects */
+        .glow-effect {
+            position: relative;
+        }
+
+        .glow-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: inherit;
+            padding: 2px;
+            background: var(--primary-gradient);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: exclude;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .glow-effect:hover::after {
+            opacity: 1;
+        }
+
+        /* Technology Stack Visualization */
+        .tech-stack-visual {
+            position: relative;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border-radius: 16px;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+
+        .tech-layer {
+            position: absolute;
+            width: 100%;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            padding: 0 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .tech-layer:nth-child(1) { top: 10px; }
+        .tech-layer:nth-child(2) { top: 60px; }
+        .tech-layer:nth-child(3) { top: 110px; }
+        .tech-layer:nth-child(4) { top: 160px; }
+
+        .tech-layer:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateX(10px);
+        }
+
+        /* Data Visualization Elements */
+        .data-viz {
+            position: relative;
+            height: 100px;
+            margin: 1rem 0;
+        }
+
+        .data-bar {
+            position: absolute;
+            bottom: 0;
+            width: 20px;
+            background: var(--primary-gradient);
+            border-radius: 4px 4px 0 0;
+            animation: bar-grow 1s ease-out;
+        }
+
+        @keyframes bar-grow {
+            from { height: 0; }
+            to { height: var(--bar-height, 50px); }
+        }
+
+        .data-bar:nth-child(1) { left: 0%; --bar-height: 60px; animation-delay: 0.1s; }
+        .data-bar:nth-child(2) { left: 25%; --bar-height: 80px; animation-delay: 0.2s; }
+        .data-bar:nth-child(3) { left: 50%; --bar-height: 45px; animation-delay: 0.3s; }
+        .data-bar:nth-child(4) { left: 75%; --bar-height: 90px; animation-delay: 0.4s; }
+
+        /* Particle System */
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: particle-float 6s linear infinite;
+        }
+
+        @keyframes particle-float {
+            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { transform: translateY(-100px) translateX(100px); opacity: 0; }
+        }
+
+        /* Interactive Hover Effects */
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Loading Animations */
+        .skeleton-loading {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* 3D Transform Effects */
+        .transform-3d {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .card-3d {
+            transition: transform 0.3s ease;
+        }
+
+        .card-3d:hover {
+            transform: rotateY(5deg) rotateX(5deg);
+        }
+
+        /* Enhanced Modal Animations */
+        .modal {
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        .modal-content {
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes modalSlideIn {
+            from { transform: translateY(-50px) scale(0.95); opacity: 0; }
+            to { transform: translateY(0) scale(1); opacity: 1; }
+        }
+
+        /* Industry-Specific Visual Indicators */
+        .industry-finance { --accent-color: #10b981; }
+        .industry-healthcare { --accent-color: #ef4444; }
+        .industry-manufacturing { --accent-color: #f59e0b; }
+        .industry-energy { --accent-color: #8b5cf6; }
+        .industry-supply { --accent-color: #06b6d4; }
+        .industry-government { --accent-color: #6366f1; }
+
+        .industry-indicator {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--accent-color);
+            animation: pulse-indicator 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-indicator {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        /* Enhanced Responsive Design */
+        @media (max-width: 768px) {
+            .neural-network { display: none; }
+            .floating-element { display: none; }
+            .tech-stack-visual { height: 150px; }
+            .data-viz { height: 60px; }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 0 4rem;
+                height: auto;
+                min-height: 100vh;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .platform-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons,
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 250px;
+            }
+
+            .architecture-showcase,
+            .platform-card {
+                padding: 2rem;
+            }
+
+            .layer-card:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-slide-up {
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Agentrify.AI</div>
+            <ul class="nav-links">
+                <li><a href="#platform">Platform</a></li>
+                <li><a href="#consulting">Consulting</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#industries">Industries</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">Join Founders Circle</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Neural Network Background -->
+        <div class="neural-network" id="neuralNetwork"></div>
+        
+        <!-- Floating Elements -->
+        <div class="floating-element" style="top: 10%; left: 10%; font-size: 2rem;">🤖</div>
+        <div class="floating-element" style="top: 20%; right: 15%; font-size: 1.5rem;">⚡</div>
+        <div class="floating-element" style="bottom: 30%; left: 20%; font-size: 1.8rem;">🧠</div>
+        <div class="floating-element" style="bottom: 40%; right: 10%; font-size: 1.3rem;">🔗</div>
+        
+        <!-- Particles -->
+        <div id="particles"></div>
+        
+        <div class="hero-content animate-slide-up">
+            <div class="hero-badge glow-effect">🧠 Architects of the Agentic Economy</div>
+            <h1>Autonomous. Intelligent. Relentless.</h1>
+            <p class="subtitle">Welcome to the Agentic Economy — where autonomous systems redefine enterprise intelligence and operational freedom. We combine cutting-edge technology platforms with strategic consulting expertise to deliver transformative AI solutions.</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item hover-lift">
+                    <span class="stat-number">$4.4T</span>
+                    <span class="stat-label">Annual Value Potential from Agentic AI</span>
+                    <div class="stat-chart"></div>
+                </div>
+                <div class="stat-item hover-lift">
+                    <span class="stat-number">10x</span>
+                    <span class="stat-label">Faster Development with AI-Assisted Systems</span>
+                    <div class="stat-chart"></div>
+                </div>
+                <div class="stat-item hover-lift">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Enterprise Deployments Across Fortune 500</span>
+                    <div class="stat-chart"></div>
+                </div>
+                <div class="stat-item hover-lift">
+                    <span class="stat-number">99.7%</span>
+                    <span class="stat-label">Success Rate with 6-Month ROI</span>
+                    <div class="stat-chart"></div>
+                </div>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary glow-effect">Request Early Access</a>
+                <a href="#platform" class="btn-secondary glow-effect">Explore Platform</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Section -->
+    <section id="platform" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title gradient">Built for Autonomy. Engineered for Impact.</h2>
+                <p class="section-subtitle">Our platform combines large language models, behavioral learning, and dynamic orchestration to create multi-agent systems that execute complex business tasks autonomously. We don't build dashboards. We build minds.</p>
+            </div>
+            <div class="platform-grid">
+                <div class="platform-card fade-in hover-lift card-3d">
+                    <span class="platform-icon">🤖</span>
+                    <h3 class="platform-title">AgentNet™</h3>
+                    <p class="platform-description">Agent infrastructure for scalable autonomy with enterprise-grade security and compliance.</p>
+                    <ul class="platform-features">
+                        <li>Dynamic agent coordination and task allocation</li>
+                        <li>Real-time performance monitoring</li>
+                        <li>Scalable architecture for thousands of agents</li>
+                        <li>Enterprise security and compliance</li>
+                    </ul>
+                    <!-- Performance Visualization -->
+                    <div class="data-viz">
+                        <div class="data-bar" style="--bar-height: 75px;"></div>
+                        <div class="data-bar" style="--bar-height: 60px;"></div>
+                        <div class="data-bar" style="--bar-height: 85px;"></div>
+                        <div class="data-bar" style="--bar-height: 70px;"></div>
+                    </div>
+                </div>
+                <div class="platform-card fade-in hover-lift card-3d">
+                    <span class="platform-icon">📊</span>
+                    <h3 class="platform-title">OpsPilot™</h3>
+                    <p class="platform-description">Real-time operational intelligence that adapts to your business rhythms.</p>
+                    <ul class="platform-features">
+                        <li>Autonomous monitoring and optimization</li>
+                        <li>Predictive analytics and forecasting</li>
+                        <li>Intelligent alerting and response</li>
+                        <li>Business rhythm adaptation</li>
+                    </ul>
+                    <!-- Performance Visualization -->
+                    <div class="data-viz">
+                        <div class="data-bar" style="--bar-height: 80px;"></div>
+                        <div class="data-bar" style="--bar-height: 65px;"></div>
+                        <div class="data-bar" style="--bar-height: 90px;"></div>
+                        <div class="data-bar" style="--bar-height: 75px;"></div>
+                    </div>
+                </div>
+                <div class="platform-card fade-in hover-lift card-3d">
+                    <span class="platform-icon">🧠</span>
+                    <h3 class="platform-title">Cognify™</h3>
+                    <p class="platform-description">Strategic reasoning and adaptive decisions that learn from outcomes.</p>
+                    <ul class="platform-features">
+                        <li>AI-powered strategic planning</li>
+                        <li>Outcome-based learning</li>
+                        <li>Complex scenario analysis</li>
+                        <li>Adaptive decision frameworks</li>
+                    </ul>
+                    <!-- Performance Visualization -->
+                    <div class="data-viz">
+                        <div class="data-bar" style="--bar-height: 70px;"></div>
+                        <div class="data-bar" style="--bar-height: 85px;"></div>
+                        <div class="data-bar" style="--bar-height: 65px;"></div>
+                        <div class="data-bar" style="--bar-height: 80px;"></div>
+                    </div>
+                </div>
+                <div class="platform-card fade-in hover-lift card-3d">
+                    <span class="platform-icon">🔧</span>
+                    <h3 class="platform-title">AgentOps™</h3>
+                    <p class="platform-description">Complete agent lifecycle management with human-AI collaboration protocols.</p>
+                    <ul class="platform-features">
+                        <li>Full integration and governance</li>
+                        <li>Human-AI collaboration design</li>
+                        <li>Agent lifecycle management</li>
+                        <li>Compliance and audit trails</li>
+                    </ul>
+                    <!-- Performance Visualization -->
+                    <div class="data-viz">
+                        <div class="data-bar" style="--bar-height: 85px;"></div>
+                        <div class="data-bar" style="--bar-height: 70px;"></div>
+                        <div class="data-bar" style="--bar-height: 75px;"></div>
+                        <div class="data-bar" style="--bar-height: 90px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consulting Services Section -->
+    <section id="consulting" class="section section-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Strategic GenAI Consulting Excellence</h2>
+                <p class="section-subtitle">Expert-led AI consulting that bridges cutting-edge technology with practical business outcomes. From strategy to execution, we accelerate your GenAI journey with proven frameworks and measurable results.</p>
+            </div>
+            <div class="platform-grid">
+                <div class="platform-card light fade-in">
+                    <span class="platform-icon">📊</span>
+                    <h3 class="platform-title">Strategic Assessment & Planning</h3>
+                    <p class="platform-description">Complete AI readiness evaluation, use case prioritization, and ROI-focused implementation roadmaps.</p>
+                    <ul class="platform-features">
+                        <li>Comprehensive technology infrastructure audit</li>
+                        <li>Skill gap analysis and training roadmap</li>
+                        <li>Competitive landscape assessment</li>
+                        <li>ROI projections and business case development</li>
+                    </ul>
+                    <button class="btn-primary" onclick="openModal('assessmentModal')" style="margin-top: 1rem;">Learn More</button>
+                </div>
+
+                <div class="platform-card light fade-in">
+                    <span class="platform-icon">🎓</span>
+                    <h3 class="platform-title">Capability Development</h3>
+                    <p class="platform-description">GenAI Application Engineer training programs and skill development frameworks for enterprise environments.</p>
+                    <ul class="platform-features">
+                        <li>4-phase structured learning program</li>
+                        <li>Hands-on project-based training</li>
+                        <li>Industry-specific use case development</li>
+                        <li>Ongoing mentorship and certification</li>
+                    </ul>
+                    <button class="btn-primary" onclick="openModal('trainingModal')" style="margin-top: 1rem;">Learn More</button>
+                </div>
+
+                <div class="platform-card light fade-in">
+                    <span class="platform-icon">🚀</span>
+                    <h3 class="platform-title">Implementation Support</h3>
+                    <p class="platform-description">Hands-on development of pilot projects, scaling strategies, and production deployment guidance.</p>
+                    <ul class="platform-features">
+                        <li>Pilot to production development</li>
+                        <li>Multi-agent system implementation</li>
+                        <li>AI-assisted development integration</li>
+                        <li>Performance optimization and monitoring</li>
+                    </ul>
+                    <button class="btn-primary" onclick="openModal('implementationModal')" style="margin-top: 1rem;">Learn More</button>
+                </div>
+
+                <div class="platform-card light fade-in">
+                    <span class="platform-icon">🔄</span>
+                    <h3 class="platform-title">Ongoing Advisory</h3>
+                    <p class="platform-description">Continuous support for emerging technologies, innovation pipeline development, and strategic optimization.</p>
+                    <ul class="platform-features">
+                        <li>Monthly strategic reviews and updates</li>
+                        <li>Technology landscape monitoring</li>
+                        <li>Innovation pipeline development</li>
+                        <li>Performance analysis and optimization</li>
+                    </ul>
+                    <button class="btn-primary" onclick="openModal('advisoryModal')" style="margin-top: 1rem;">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Infrastructure Framework -->
+    <section id="technology" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title gradient">Enterprise GenAI Technology Stack</h2>
+                <p class="section-subtitle">Our proprietary technology infrastructure framework represents the most advanced, battle-tested approach to enterprise AI transformation. Built from 15+ years of research and real-world deployments.</p>
+            </div>
+
+            <div class="architecture-showcase">
+                <h3 class="architecture-title">🏗️ Proprietary GenAI Architecture Framework</h3>
+                <p class="architecture-subtitle">Enterprise-grade, scalable, and security-first AI infrastructure designed for mission-critical applications</p>
+                
+                <!-- Technology Stack Visualization -->
+                <div class="tech-stack-visual">
+                    <div class="tech-layer">
+                        <span style="margin-right: 1rem;">🎯</span>
+                        <span>Application Intelligence Layer</span>
+                    </div>
+                    <div class="tech-layer">
+                        <span style="margin-right: 1rem;">⚙️</span>
+                        <span>AI Orchestration & Governance</span>
+                    </div>
+                    <div class="tech-layer">
+                        <span style="margin-right: 1rem;">📊</span>
+                        <span>Data Intelligence Platform</span>
+                    </div>
+                    <div class="tech-layer">
+                        <span style="margin-right: 1rem;">🔒</span>
+                        <span>Security & Compliance Foundation</span>
+                    </div>
+                </div>
+                
+                <div class="architecture-layers transform-3d">
+                    <div class="layer-card hover-lift" onclick="openModal('applicationLayerModal')">
+                        <div class="layer-number">01</div>
+                        <h4 class="layer-title">Application Intelligence Layer</h4>
+                        <p class="layer-description">Advanced RAG systems, multi-agent orchestration, and intelligent workflow automation</p>
+                        <div class="layer-tech">
+                            <span class="tech-tag">Advanced RAG</span>
+                            <span class="tech-tag">Multi-Agent Systems</span>
+                            <span class="tech-tag">Intelligent Workflows</span>
+                        </div>
+                    </div>
+
+                    <div class="layer-card hover-lift" onclick="openModal('orchestrationLayerModal')">
+                        <div class="layer-number">02</div>
+                        <h4 class="layer-title">AI Orchestration & Governance</h4>
+                        <p class="layer-description">Model lifecycle management, performance monitoring, and enterprise governance frameworks</p>
+                        <div class="layer-tech">
+                            <span class="tech-tag">Model MLOps</span>
+                            <span class="tech-tag">Performance Analytics</span>
+                            <span class="tech-tag">Governance Controls</span>
+                        </div>
+                    </div>
+
+                    <div class="layer-card hover-lift" onclick="openModal('dataLayerModal')">
+                        <div class="layer-number">03</div>
+                        <h4 class="layer-title">Data Intelligence Platform</h4>
+                        <p class="layer-description">Vector databases, knowledge graphs, and intelligent data processing pipelines</p>
+                        <div class="layer-tech">
+                            <span class="tech-tag">Vector Databases</span>
+                            <span class="tech-tag">Knowledge Graphs</span>
+                            <span class="tech-tag">Data Pipelines</span>
+                        </div>
+                    </div>
+
+                    <div class="layer-card hover-lift" onclick="openModal('securityLayerModal')">
+                        <div class="layer-number">04</div>
+                        <h4 class="layer-title">Security & Compliance Foundation</h4>
+                        <p class="layer-description">Zero-trust architecture, privacy-preserving AI, and regulatory compliance automation</p>
+                        <div class="layer-tech">
+                            <span class="tech-tag">Zero-Trust Security</span>
+                            <span class="tech-tag">Privacy-AI</span>
+                            <span class="tech-tag">Compliance Automation</span>
+                        </div>
+                    </div>
+
+                    <div class="layer-card hover-lift" onclick="openModal('infrastructureLayerModal')">
+                        <div class="layer-number">05</div>
+                        <h4 class="layer-title">Cloud-Native Infrastructure</h4>
+                        <p class="layer-description">Multi-cloud deployment, edge computing, and auto-scaling AI workloads</p>
+                        <div class="layer-tech">
+                            <span class="tech-tag">Multi-Cloud</span>
+                            <span class="tech-tag">Edge Computing</span>
+                            <span class="tech-tag">Auto-Scaling</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section id="industries" class="section section-gray">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Agentic Intelligence Across Industries</h2>
+                <p class="section-subtitle">Deploy intelligent agents that adapt to your workflows, environments, and decisions. Our autonomous systems are transforming operations across multiple sectors.</p>
+            </div>
+            <div class="platform-grid">
+                <div class="platform-card light fade-in hover-lift industry-finance" onclick="openModal('financeModal')">
+                    <div class="industry-indicator"></div>
+                    <span class="platform-icon">💰</span>
+                    <h3 class="platform-title">Financial Services</h3>
+                    <p class="platform-description">Autonomous trading agents, continuous market surveillance, and intelligent fraud detection systems.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                        <div style="text-align: center; padding: 1rem; background: #f8fafc; border-radius: 8px; position: relative;">
+                            <div style="font-size: 1.5rem; font-weight: 800; color: #2563eb;">60%</div>
+                            <div style="font-size: 0.9rem; color: #6b7280;">Trading Performance</div>
+                            <div class="metric-progress" style="--progress-width: 60%;"></div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: #f8fafc; border-radius: 8px; position: relative;">
+                            <div style="font-size: 1.5rem; font-weight: 800; color: #2563eb;">80%</div>
+                            <div style="font-size: 0.9rem; color: #6b7280;">Cost Reduction</div>
+                            <div class="metric-progress" style="--progress-width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="platform-card light fade-in hover-lift industry-healthcare" onclick="openModal('healthcareModal')">
+                    <div class="industry-indicator"></div>
+                    <span class="platform-icon">🏥</span>
+                    <h3 class="platform-title">Healthcare & Life Sciences</h3>
+                    <p class="platform-description">Intelligent patient triage, predictive scheduling, and clinical decision support systems.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                        <div style="text-align: center; padding: 1rem; background: #f8fafc; border-radius: 8px; position: relative;">
+                            <div style="font-size: 1.5rem; font-weight: 800; color: #2563eb;">50%</div>
+                            <div style="font-size: 0.9rem; color: #6b7280;">Documentation Time</div>
+                            <div class="metric-progress" style="--progress-width: 50%;"></div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: #f8fafc; border-radius: 8px; position: relative;">
+                            <div style="font-size: 1.5rem; font-weight: 800; color: #2563eb;">30%</div>
+                            <div style="font-size: 0.9rem; color: #6b7280;">Diagnostic Accuracy</div>
+                            <div class="metric-progress" style="--progress-width: 30%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="platform-card light fade-in hover-lift industry-manufacturing" onclick="openModal('manufacturingModal')">
+                    <div class="industry-indicator"></div>
+                    <span class="platform-icon">🏭</span>
+                    <h3 class="platform-title">Manufacturing & Industry 4.0</h3>
+                    <p class="platform-description">Predictive maintenance, quality control automation, and supply chain intelligence.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                        <div style="text-align: center; padding: 1rem; background: #f8fafc; border-radius: 8px; position: relative;">
+                            <div style="font-size: 1.5rem; font-weight: 800; color: #2563eb;">30%</div>
+                            <div style="font-size: 0.9rem; color: #6b7280;">Downtime Reduction</div>
+                            <div class="metric-progress" style="--progress-width: 30%;"></div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: #f8fafc; border-radius: 8px; position: relative;">
+                            <div style="font-size: 1.5rem; font-weight: 800; color: #2563eb;">25%</div>
+                            <div style="font-size: 0.9rem; color: #6b7280;">Quality Improvement</div>
+                            <div class="metric-progress" style="--progress-width: 25%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="platform-card light fade-in hover-lift industry-energy" onclick="openModal('energyModal')">
+                    <div class="industry-indicator"></div>
+                    <span class="platform-icon">⚡</span>
+                    <h3 class="platform-title">Energy & Infrastructure</h3>
+                    <p class="platform-description">Smart-grid control, predictive maintenance, and autonomous resource allocation for critical infrastructure.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                        <div style="text-align: center; padding: 1rem; background: #f8fafc; border-radius: 8px; position: relative;">
+                            <div style="font-size: 1.5rem; font-weight: 800; color: #2563eb;">40%</div>
+                            <div style="font-size: 0.9rem; color: #6b7280;">Energy Efficiency</div>
+                            <div class="metric-progress" style="--progress-width: 40%;"></div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: #f8fafc; border-radius: 8px; position: relative;">
+                            <div style="font-size: 1.5rem; font-weight: 800; color: #2563eb;">35%</div>
+                            <div style="font-size: 0.9rem; color: #6b7280;">Cost Savings</div>
+                            <div class="metric-progress" style="--progress-width: 35%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="platform-card light fade-in hover-lift industry-supply" onclick="openModal('supplyChainModal')">
+                    <div class="industry-indicator"></div>
+                    <span class="platform-icon">🚛</span>
+                    <h3 class="platform-title">Supply Chain & Logistics</h3>
+                    <p class="platform-description">Autonomous demand prediction, disruption recovery, and intelligent logistics optimization.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                        <div style="text-align: center; padding: 1rem; background: #f8fafc; border-radius: 8px; position: relative;">
+                            <div style="font-size: 1.5rem; font-weight: 800; color: #2563eb;">45%</div>
+                            <div style="font-size: 0.9rem; color: #6b7280;">Delivery Efficiency</div>
+                            <div class="metric-progress" style="--progress-width: 45%;"></div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: #f8fafc; border-radius: 8px; position: relative;">
+                            <div style="font-size: 1.5rem; font-weight: 800; color: #2563eb;">38%</div>
+                            <div style="font-size: 0.9rem; color: #6b7280;">Cost Reduction</div>
+                            <div class="metric-progress" style="--progress-width: 38%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="platform-card light fade-in hover-lift industry-government" onclick="openModal('governmentModal')">
+                    <div class="industry-indicator"></div>
+                    <span class="platform-icon">🏛️</span>
+                    <h3 class="platform-title">Government & Policy</h3>
+                    <p class="platform-description">Compliance agents, adaptive risk analysis, and citizen service automation for public sector efficiency.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                        <div style="text-align: center; padding: 1rem; background: #f8fafc; border-radius: 8px; position: relative;">
+                            <div style="font-size: 1.5rem; font-weight: 800; color: #2563eb;">70%</div>
+                            <div style="font-size: 0.9rem; color: #6b7280;">Process Efficiency</div>
+                            <div class="metric-progress" style="--progress-width: 70%;"></div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: #f8fafc; border-radius: 8px; position: relative;">
+                            <div style="font-size: 1.5rem; font-weight: 800; color: #2563eb;">90%</div>
+                            <div style="font-size: 0.9rem; color: #6b7280;">Compliance Rate</div>
+                            <div class="metric-progress" style="--progress-width: 90%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="profile-card">
+                        <div class="profile-avatar">EC</div>
+                        <h3 class="profile-name">Dr. Elias Kairos Chen</h3>
+                        <p class="profile-title">Founder & Chief Agentic Officer</p>
+                        <ul class="profile-credentials">
+                            <li>PhD in Artificial Intelligence</li>
+                            <li>Serial Entrepreneur</li>
+                            <li>Strategic Consulting Background</li>
+                            <li>15+ Years Technology Leadership</li>
+                            <li>Multiple Successful Exits</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Visionary Leader in Agentic AI</h3>
+                    <p>Dr. Elias Kairos Chen is a visionary futurist, author, and expert in artificial intelligence, strategic finance, and transformative business innovation. With decades of experience at the intersection of technology, finance, and entrepreneurship, Dr. Chen is dedicated to exploring how emerging technologies shape economies, industries, and society.</p>
+                    <p>Holding advanced degrees in Artificial Intelligence, International Finance, and Computer Engineering, Dr. Chen combines deep technical expertise with sharp business acumen. He has successfully founded and advised numerous technology-driven ventures in Green-Tech, IoT, Edge-AI, and Deep-Tech sectors.</p>
+                    <p>Dr. Chen currently leads Agentrify.AI, pioneering autonomous systems that power the agentic economy. His groundbreaking work involves developing intelligent agents that seamlessly integrate AI-driven processes with human-centered decision-making, optimizing performance and innovation in businesses worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Build With Agents?</h2>
+            <p>Join us on the frontier of the intelligent enterprise. Let's create systems that don't just assist — they act. Transform your organization with the combined power of cutting-edge technology and strategic expertise.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn-primary">Join Our Founders Circle</a>
+                <a href="#platform" class="btn-secondary">Request Platform Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title gradient">Transform Your Organization Today</h2>
+                <p class="section-subtitle">Ready to lead the agentic revolution? Let's discuss your specific challenges and opportunities with both our technology platform and strategic consulting services.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p>contact@agentrify.ai</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🤝</div>
+                    <h3>Partnerships</h3>
+                    <p>partners@agentrify.ai</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <h3>Strategy Call</h3>
+                    <p>Book consultation</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🌐</div>
+                    <h3>Media</h3>
+                    <p>media@agentrify.ai</p>
+                </div>
+            </div>
+            <div style="margin-top: 2rem; text-align: center;">
+                <button class="btn-primary pulse" onclick="openModal('contactModal')">Join Our Founders Circle</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals (keeping the existing modals from both websites) -->
+    <!-- Technology Infrastructure Layer Modals -->
+    <div id="applicationLayerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" onclick="closeModal('applicationLayerModal')">&times;</button>
+                <h2>Application Intelligence Layer</h2>
+            </div>
+            <div class="modal-body whitepaper-content">
+                <h3>Advanced RAG Systems Architecture</h3>
+                <p>Our proprietary RAG implementation goes far beyond basic document retrieval, incorporating multi-modal processing, semantic understanding, and intelligent context management.</p>
+                
+                <h4>Technical Components:</h4>
+                <ul>
+                    <li><strong>Hybrid Retrieval Engine:</strong> Combines dense and sparse retrieval with custom reranking algorithms</li>
+                    <li><strong>Semantic Chunking Intelligence:</strong> AI-powered document segmentation that preserves meaning and context</li>
+                    <li><strong>Multi-Modal Integration:</strong> Seamless processing of text, images, audio, and structured data</li>
+                    <li><strong>Context Window Optimization:</strong> Dynamic context management for maximum relevance and accuracy</li>
+                    <li><strong>Real-Time Learning:</strong> Continuous improvement based on user interactions and feedback</li>
+                </ul>
+
+                <h3>Multi-Agent Orchestration Platform</h3>
+                <p>Enterprise-grade agent coordination system that enables complex workflow automation with human oversight and quality control.</p>
+                
+                <h4>Agent Capabilities:</h4>
+                <ul>
+                    <li><strong>Role-Based Specialization:</strong> Agents with specific domain expertise and task optimization</li>
+                    <li><strong>Hierarchical Coordination:</strong> Manager-worker patterns with intelligent task delegation</li>
+                    <li><strong>Cross-Agent Communication:</strong> Secure, structured information sharing protocols</li>
+                    <li><strong>Human-in-the-Loop Integration:</strong> Seamless escalation and approval workflows</li>
+                    <li><strong>Performance Monitoring:</strong> Real-time agent performance tracking and optimization</li>
+                </ul>
+
+                <h3>Performance Metrics</h3>
+                <ul>
+                    <li>95% accuracy in complex document understanding</li>
+                    <li>85% reduction in manual workflow processing time</li>
+                    <li>99.8% uptime with automatic failover capabilities</li>
+                    <li>Sub-second response times for most queries</li>
+                </ul>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn-primary" onclick="bookConsultation('technical')">Discuss Application Layer Implementation</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Industry White Paper Modals -->
+    <div id="financeModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" onclick="closeModal('financeModal')">&times;</button>
+                <h2>Financial Services: Autonomous Intelligence Revolution</h2>
+            </div>
+            <div class="modal-body whitepaper-content">
+                <h3>Executive Summary</h3>
+                <p>The financial services industry stands at the precipice of a $340 billion annual transformation opportunity through autonomous agent deployment. This white paper examines how agentic AI systems are revolutionizing trading, compliance, risk management, and customer service.</p>
+                
+                <h3>Key Applications</h3>
+                <ul>
+                    <li><strong>Autonomous Trading Agents:</strong> Continuous market analysis and trade execution with 60% performance improvement</li>
+                    <li><strong>Compliance Monitoring Systems:</strong> Real-time regulatory adherence and reporting with 99.9% accuracy</li>
+                    <li><strong>Risk Assessment Agents:</strong> Dynamic risk modeling and mitigation strategies with predictive analytics</li>
+                    <li><strong>Customer Service Intelligence:</strong> AI agents handling 85% of routine inquiries with 40% satisfaction improvement</li>
+                </ul>
+
+                <h3>Implementation Framework</h3>
+                <p>Our proven 4-phase approach ensures regulatory compliance while maximizing ROI:</p>
+                <ol>
+                    <li><strong>Assessment & Strategy (Months 1-2):</strong> Regulatory mapping and use case prioritization</li>
+                    <li><strong>Pilot Deployment (Months 3-4):</strong> Limited scope implementation with measurable outcomes</li>
+                    <li><strong>Scaling & Integration (Months 5-8):</strong> Enterprise-wide deployment with governance frameworks</li>
+                    <li><strong>Optimization & Evolution (Ongoing):</strong> Continuous improvement and capability expansion</li>
+                </ol>
+
+                <h3>Regulatory Compliance</h3>
+                <ul>
+                    <li><strong>SOX Compliance:</strong> Automated financial reporting and internal controls</li>
+                    <li><strong>PCI-DSS:</strong> Payment card data security and fraud prevention</li>
+                    <li><strong>GDPR/CCPA:</strong> Privacy-preserving customer data processing</li>
+                    <li><strong>Basel III:</strong> Capital adequacy and risk management compliance</li>
+                </ul>
+
+                <h3>ROI Analysis</h3>
+                <p>Conservative projections show 18-month payback periods with ongoing annual benefits:</p>
+                <ul>
+                    <li>25-40% operational cost reduction in targeted departments</li>
+                    <li>60% improvement in fraud detection accuracy</li>
+                    <li>80% reduction in compliance monitoring costs</li>
+                    <li>45% faster risk assessment and response times</li>
+                </ul>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn-primary" onclick="downloadWhitePaper('finance')">Download Complete White Paper</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="healthcareModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" onclick="closeModal('healthcareModal')">&times;</button>
+                <h2>Healthcare: Patient-Centric Autonomous Systems</h2>
+            </div>
+            <div class="modal-body whitepaper-content">
+                <h3>Executive Summary</h3>
+                <p>Healthcare organizations are leveraging autonomous agents to address critical challenges including staffing shortages, increasing costs, and the need for improved patient outcomes. This comprehensive analysis explores implementation strategies for patient-centric agentic systems.</p>
+                
+                <h3>Transformative Applications</h3>
+                <ul>
+                    <li><strong>Intelligent Triage Systems:</strong> Automated patient assessment with 95% accuracy and priority routing</li>
+                    <li><strong>Predictive Scheduling Agents:</strong> Dynamic resource allocation optimizing patient flow and staff utilization</li>
+                    <li><strong>Clinical Decision Support:</strong> Evidence-based treatment recommendations with 30% diagnostic improvement</li>
+                    <li><strong>Documentation Automation:</strong> 50% reduction in administrative burden through automated clinical notes</li>
+                </ul>
+
+                <h3>Clinical Workflow Integration</h3>
+                <ul>
+                    <li><strong>EHR Integration:</strong> Seamless integration with Epic, Cerner, and other major systems</li>
+                    <li><strong>Real-time Monitoring:</strong> Continuous patient vitals analysis with early warning systems</li>
+                    <li><strong>Care Coordination:</strong> Automated handoffs and communication between care teams</li>
+                    <li><strong>Quality Metrics:</strong> Automated quality reporting and outcome tracking</li>
+                </ul>
+
+                <h3>Compliance & Security Framework</h3>
+                <p>Our healthcare-specific implementation ensures full HIPAA compliance with advanced security measures:</p>
+                <ul>
+                    <li><strong>HIPAA Compliance:</strong> End-to-end encryption for all patient data and communications</li>
+                    <li><strong>Access Controls:</strong> Role-based permissions with complete audit trails</li>
+                    <li><strong>HL7 FHIR Standards:</strong> Interoperability with existing healthcare systems</li>
+                    <li><strong>FDA Compliance:</strong> Regulatory requirement adherence for medical device integration</li>
+                </ul>
+
+                <h3>Patient Experience Enhancement</h3>
+                <ul>
+                    <li><strong>24/7 Virtual Assistants:</strong> Round-the-clock patient support and triage</li>
+                    <li><strong>Personalized Care Plans:</strong> AI-driven treatment recommendations based on patient history</li>
+                    <li><strong>Appointment Optimization:</strong> Intelligent scheduling reducing wait times by 60%</li>
+                    <li><strong>Follow-up Automation:</strong> Automated patient engagement and care continuity</li>
+                </ul>
+
+                <h3>Clinical Outcomes</h3>
+                <ul>
+                    <li>30% improvement in diagnostic accuracy through AI assistance</li>
+                    <li>40% increase in patient satisfaction scores</li>
+                    <li>60% reduction in administrative time for clinical staff</li>
+                    <li>25% decrease in readmission rates through predictive analytics</li>
+                </ul>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn-primary" onclick="downloadWhitePaper('healthcare')">Download Complete White Paper</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="manufacturingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" onclick="closeModal('manufacturingModal')">&times;</button>
+                <h2>Manufacturing: Industry 4.0 Autonomous Operations</h2>
+            </div>
+            <div class="modal-body whitepaper-content">
+                <h3>Executive Summary</h3>
+                <p>Manufacturing organizations are achieving unprecedented operational efficiency through autonomous agent deployment. This white paper details how Industry 4.0 companies are implementing agentic systems for predictive maintenance, quality control, and supply chain optimization.</p>
+                
+                <h3>Operational Excellence Applications</h3>
+                <ul>
+                    <li><strong>Predictive Maintenance Agents:</strong> 30% reduction in unplanned downtime through AI-powered equipment monitoring</li>
+                    <li><strong>Quality Control Automation:</strong> Real-time defect detection with 99.8% accuracy and automated rejection systems</li>
+                    <li><strong>Supply Chain Intelligence:</strong> Autonomous logistics optimization with demand forecasting and inventory management</li>
+                    <li><strong>Safety Monitoring Systems:</strong> Continuous risk assessment and incident prevention with 45% accident reduction</li>
+                </ul>
+
+                <h3>Smart Factory Integration</h3>
+                <ul>
+                    <li><strong>Digital Twin Technology:</strong> Real-time factory simulation and optimization modeling</li>
+                    <li><strong>Automated Production Planning:</strong> AI-driven scheduling and resource allocation</li>
+                    <li><strong>Workforce Augmentation:</strong> Human-AI collaboration for enhanced productivity</li>
+                    <li><strong>Energy Optimization:</strong> Intelligent power management and sustainability monitoring</li>
+                </ul>
+
+                <h3>Technical Integration</h3>
+                <p>Our manufacturing-specific approach integrates seamlessly with existing infrastructure:</p>
+                <ul>
+                    <li><strong>IoT Sensor Networks:</strong> Comprehensive data collection from manufacturing equipment and processes</li>
+                    <li><strong>Edge Computing:</strong> Real-time processing for millisecond decision-making capabilities</li>
+                    <li><strong>Industrial Protocols:</strong> Native support for OPC-UA, MQTT, and legacy communication systems</li>
+                    <li><strong>Legacy System Integration:</strong> Seamless connection with existing MES, ERP, and SCADA systems</li>
+                </ul>
+
+                <h3>Quality and Compliance</h3>
+                <ul>
+                    <li><strong>ISO Standards:</strong> Compliance with ISO 9001, ISO 14001, and industry-specific requirements</li>
+                    <li><strong>Traceability Systems:</strong> Complete product lifecycle tracking and audit capabilities</li>
+                    <li><strong>Regulatory Reporting:</strong> Automated compliance documentation and regulatory submissions</li>
+                    <li><strong>Continuous Improvement:</strong> AI-driven process optimization and efficiency enhancement</li>
+                </ul>
+
+                <h3>Business Impact Metrics</h3>
+                <ul>
+                    <li>25% improvement in overall equipment effectiveness (OEE)</li>
+                    <li>20% optimization in supply chain efficiency and cost reduction</li>
+                    <li>15% increase in workforce productivity through AI augmentation</li>
+                    <li>35% reduction in quality control costs through automation</li>
+                </ul>
+
+                <h3>Sustainability Impact</h3>
+                <ul>
+                    <li>30% reduction in energy consumption through intelligent optimization</li>
+                    <li>40% decrease in waste generation through predictive quality control</li>
+                    <li>25% improvement in resource utilization efficiency</li>
+                    <li>50% reduction in environmental compliance reporting time</li>
+                </ul>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn-primary" onclick="downloadWhitePaper('manufacturing')">Download Complete White Paper</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="supplyChainModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" onclick="closeModal('supplyChainModal')">&times;</button>
+                <h2>Supply Chain & Logistics: Autonomous Intelligence Revolution</h2>
+            </div>
+            <div class="modal-body whitepaper-content">
+                <h3>Executive Summary</h3>
+                <p>Supply chain and logistics organizations are leveraging autonomous agents to transform operations, reduce costs, and enhance resilience. This white paper examines how agentic AI systems are revolutionizing demand prediction, inventory management, route optimization, and disruption recovery across global supply networks.</p>
+                
+                <h3>Transformative Applications</h3>
+                <ul>
+                    <li><strong>Autonomous Demand Forecasting:</strong> AI agents analyzing market signals, weather patterns, and economic indicators for 92% forecast accuracy</li>
+                    <li><strong>Intelligent Inventory Management:</strong> Dynamic stock optimization reducing carrying costs by 35% while maintaining 99.5% service levels</li>
+                    <li><strong>Route Optimization Agents:</strong> Real-time delivery routing with 45% efficiency improvement and 25% fuel cost reduction</li>
+                    <li><strong>Disruption Recovery Systems:</strong> Autonomous supply chain resilience with 80% faster recovery from disruptions</li>
+                </ul>
+
+                <h3>Advanced Supply Chain Intelligence</h3>
+                <ul>
+                    <li><strong>Multi-Tier Visibility:</strong> End-to-end supply chain transparency with supplier performance monitoring</li>
+                    <li><strong>Risk Assessment Agents:</strong> Proactive identification and mitigation of supply chain risks</li>
+                    <li><strong>Vendor Management Automation:</strong> Intelligent supplier selection and performance optimization</li>
+                    <li><strong>Sustainability Tracking:</strong> Carbon footprint monitoring and ESG compliance automation</li>
+                </ul>
+
+                <h3>Logistics Optimization Framework</h3>
+                <p>Our comprehensive approach transforms every aspect of logistics operations:</p>
+                
+                <h4>Warehouse Automation</h4>
+                <ul>
+                    <li><strong>Intelligent Slotting:</strong> AI-driven inventory placement for 40% picking efficiency improvement</li>
+                    <li><strong>Automated Replenishment:</strong> Dynamic stock management with predictive ordering systems</li>
+                    <li><strong>Labor Optimization:</strong> Workforce scheduling and task assignment for maximum productivity</li>
+                    <li><strong>Quality Control:</strong> Automated inspection and defect detection systems</li>
+                </ul>
+
+                <h4>Transportation Management</h4>
+                <ul>
+                    <li><strong>Dynamic Routing:</strong> Real-time route optimization based on traffic, weather, and delivery windows</li>
+                    <li><strong>Fleet Management:</strong> Predictive maintenance and vehicle utilization optimization</li>
+                    <li><strong>Carrier Selection:</strong> Intelligent matching of shipments with optimal carriers</li>
+                    <li><strong>Last-Mile Optimization:</strong> Drone and autonomous vehicle integration for final delivery</li>
+                </ul>
+
+                <h3>Demand Sensing and Planning</h3>
+                <ul>
+                    <li><strong>Multi-Signal Analysis:</strong> Integration of POS data, social media trends, and economic indicators</li>
+                    <li><strong>Seasonal Pattern Recognition:</strong> Advanced algorithms for seasonal and promotional demand prediction</li>
+                    <li><strong>New Product Introduction:</strong> AI-powered forecasting for product launches and lifecycle management</li>
+                    <li><strong>Market Intelligence:</strong> Competitive analysis and market share impact modeling</li>
+                </ul>
+
+                <h3>Resilience and Risk Management</h3>
+                <ul>
+                    <li><strong>Scenario Planning:</strong> AI-driven simulation of supply chain disruption scenarios</li>
+                    <li><strong>Alternative Sourcing:</strong> Automated identification and qualification of backup suppliers</li>
+                    <li><strong>Geopolitical Risk Analysis:</strong> Assessment of trade policy and regulatory impacts</li>
+                    <li><strong>Climate Risk Monitoring:</strong> Weather pattern analysis and natural disaster preparation</li>
+                </ul>
+
+                <h3>Technology Integration</h3>
+                <ul>
+                    <li><strong>IoT Sensor Networks:</strong> Real-time tracking of goods, vehicles, and environmental conditions</li>
+                    <li><strong>Blockchain Integration:</strong> Immutable supply chain records and smart contract automation</li>
+                    <li><strong>Digital Twin Modeling:</strong> Virtual representation of entire supply chain for optimization testing</li>
+                    <li><strong>Edge Computing:</strong> Local processing for real-time decision making in remote locations</li>
+                </ul>
+
+                <h3>Sustainability and ESG</h3>
+                <ul>
+                    <li><strong>Carbon Tracking:</strong> Automated measurement and reporting of supply chain emissions</li>
+                    <li><strong>Circular Economy:</strong> Reverse logistics optimization for recycling and returns</li>
+                    <li><strong>Ethical Sourcing:</strong> Supplier compliance monitoring for labor and environmental standards</li>
+                    <li><strong>Green Logistics:</strong> Route optimization for minimal environmental impact</li>
+                </ul>
+
+                <h3>Business Impact Metrics</h3>
+                <ul>
+                    <li>45% improvement in delivery efficiency and on-time performance</li>
+                    <li>38% reduction in total logistics costs through optimization</li>
+                    <li>55% decrease in inventory holding costs while maintaining service levels</li>
+                    <li>70% faster response to supply chain disruptions and anomalies</li>
+                    <li>60% improvement in demand forecast accuracy across all product categories</li>
+                    <li>50% reduction in stockouts and overstock situations</li>
+                </ul>
+
+                <h3>Industry Case Studies</h3>
+                <ul>
+                    <li><strong>Global Retailer:</strong> Implemented autonomous demand forecasting reducing inventory by $2B while improving service levels</li>
+                    <li><strong>Automotive Manufacturer:</strong> Deployed supply chain resilience agents reducing disruption impact by 80%</li>
+                    <li><strong>E-commerce Leader:</strong> Optimized last-mile delivery with 40% cost reduction and improved customer satisfaction</li>
+                    <li><strong>Pharmaceutical Company:</strong> Achieved 99.9% cold chain compliance through intelligent monitoring systems</li>
+                </ul>
+
+                <h3>Implementation Framework</h3>
+                <ol>
+                    <li><strong>Supply Chain Mapping (Month 1):</strong> Complete visibility and baseline establishment</li>
+                    <li><strong>Pilot Deployment (Months 2-3):</strong> Focused implementation on highest-impact use cases</li>
+                    <li><strong>Integration & Scaling (Months 4-6):</strong> Enterprise-wide deployment with system integration</li>
+                    <li><strong>Optimization & Evolution (Ongoing):</strong> Continuous improvement and capability expansion</li>
+                </ol>
+
+                <h3>Future of Autonomous Supply Chains</h3>
+                <p>The next generation of supply chain management will be fully autonomous, with AI agents making real-time decisions, predicting disruptions before they occur, and continuously optimizing for cost, service, and sustainability. Organizations that implement these capabilities now will establish insurmountable competitive advantages.</p>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn-primary" onclick="downloadWhitePaper('supplychain')">Download Complete White Paper</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Industry Modals -->
+    <div id="energyModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" onclick="closeModal('energyModal')">&times;</button>
+                <h2>Energy & Infrastructure: Smart Grid Autonomy</h2>
+            </div>
+            <div class="modal-body whitepaper-content">
+                <h3>Executive Summary</h3>
+                <p>Energy and infrastructure organizations are deploying autonomous agents to optimize grid operations, predict equipment failures, and enhance sustainability outcomes. This analysis explores the transformation of critical infrastructure through intelligent automation.</p>
+                
+                <h3>Infrastructure Applications</h3>
+                <ul>
+                    <li><strong>Smart Grid Control Agents:</strong> Autonomous load balancing and optimization with real-time demand response</li>
+                    <li><strong>Predictive Maintenance Systems:</strong> Equipment failure prevention with 95% accuracy in failure prediction</li>
+                    <li><strong>Resource Allocation Optimization:</strong> Dynamic capacity management and distribution efficiency</li>
+                    <li><strong>Environmental Monitoring:</strong> Sustainability compliance automation and carbon footprint reduction</li>
+                </ul>
+
+                <h3>Sustainability Impact</h3>
+                <p>Autonomous energy systems deliver measurable environmental benefits through intelligent optimization:</p>
+                <ul>
+                    <li>40% improvement in energy efficiency across grid operations</li>
+                    <li>30% reduction in carbon footprint through optimized resource allocation</li>
+                    <li>50% optimization of renewable energy integration and storage</li>
+                    <li>25% decrease in operational waste through predictive maintenance</li>
+                </ul>
+
+                <h3>Grid Resilience Enhancement</h3>
+                <ul>
+                    <li><strong>Real-time Threat Detection:</strong> Autonomous identification and response to grid anomalies</li>
+                    <li><strong>Fault Isolation and Recovery:</strong> Automatic system isolation and restoration protocols</li>
+                    <li><strong>Predictive Capacity Planning:</strong> AI-driven forecasting for infrastructure investments</li>
+                    <li><strong>Emergency Response Coordination:</strong> Automated disaster response and recovery systems</li>
+                </ul>
+
+                <h3>Technical Implementation</h3>
+                <ul>
+                    <li><strong>IoT Integration:</strong> Comprehensive sensor networks with edge computing capabilities</li>
+                    <li><strong>Real-time Analytics:</strong> Millisecond response times for critical grid operations</li>
+                    <li><strong>Regulatory Compliance:</strong> Automated reporting and compliance monitoring systems</li>
+                    <li><strong>Legacy System Integration:</strong> Seamless connection with existing infrastructure</li>
+                </ul>
+
+                <h3>Business Impact Metrics</h3>
+                <ul>
+                    <li>35% reduction in operational costs through automation</li>
+                    <li>60% improvement in equipment lifespan through predictive maintenance</li>
+                    <li>45% reduction in unplanned outages and service disruptions</li>
+                    <li>80% faster incident response and resolution times</li>
+                </ul>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn-primary" onclick="downloadWhitePaper('energy')">Download Complete White Paper</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="governmentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" onclick="closeModal('governmentModal')">&times;</button>
+                <h2>Government & Policy: Citizen-Centric Automation</h2>
+            </div>
+            <div class="modal-body whitepaper-content">
+                <h3>Executive Summary</h3>
+                <p>Government organizations are leveraging autonomous agents to improve citizen services, enhance compliance monitoring, and optimize resource allocation. This white paper examines successful implementations across federal, state, and local government entities.</p>
+                
+                <h3>Citizen Service Applications</h3>
+                <ul>
+                    <li><strong>Service Request Automation:</strong> 70% faster processing times for citizen inquiries and requests</li>
+                    <li><strong>Compliance Monitoring Agents:</strong> Real-time regulatory oversight and automated reporting</li>
+                    <li><strong>Resource Optimization Systems:</strong> Dynamic budget allocation and staffing optimization</li>
+                    <li><strong>Emergency Response Coordination:</strong> Automated crisis management and resource deployment</li>
+                </ul>
+
+                <h3>Digital Transformation Benefits</h3>
+                <ul>
+                    <li><strong>24/7 Service Availability:</strong> Round-the-clock citizen services without human intervention</li>
+                    <li><strong>Multi-Language Support:</strong> Automated translation and cultural adaptation for diverse populations</li>
+                    <li><strong>Accessibility Compliance:</strong> ADA-compliant interfaces with voice and visual assistance</li>
+                    <li><strong>Mobile-First Design:</strong> Optimized experiences for mobile and digital-native citizens</li>
+                </ul>
+
+                <h3>Security & Privacy Framework</h3>
+                <p>Government-grade security with full transparency and accountability:</p>
+                <ul>
+                    <li><strong>FedRAMP Compliance:</strong> Cloud deployment meeting federal security standards</li>
+                    <li><strong>Zero-Trust Architecture:</strong> Continuous verification and least-privilege access</li>
+                    <li><strong>Complete Audit Trails:</strong> Full transparency and accountability for all AI decisions</li>
+                    <li><strong>Privacy-by-Design:</strong> Built-in privacy protection and data minimization</li>
+                </ul>
+
+                <h3>Policy and Compliance Automation</h3>
+                <ul>
+                    <li><strong>Regulatory Monitoring:</strong> Automated tracking of policy changes and compliance requirements</li>
+                    <li><strong>Impact Analysis:</strong> Predictive modeling of policy outcomes and citizen impact</li>
+                    <li><strong>Performance Metrics:</strong> Automated KPI tracking and government performance reporting</li>
+                    <li><strong>Inter-Agency Coordination:</strong> Seamless information sharing and collaborative workflows</li>
+                </ul>
+
+                <h3>Citizen Satisfaction Improvements</h3>
+                <ul>
+                    <li>90% improvement in service response times across all departments</li>
+                    <li>85% increase in citizen satisfaction scores and feedback ratings</li>
+                    <li>60% reduction in processing errors and manual mistakes</li>
+                    <li>75% improvement in transparency and accessibility metrics</li>
+                </ul>
+
+                <h3>Implementation Case Studies</h3>
+                <ul>
+                    <li><strong>Federal Agencies:</strong> Automated permit processing and regulatory compliance</li>
+                    <li><strong>State Governments:</strong> Benefits administration and tax processing automation</li>
+                    <li><strong>Local Municipalities:</strong> Smart city initiatives and citizen engagement platforms</li>
+                    <li><strong>Emergency Services:</strong> Disaster response coordination and resource management</li>
+                </ul>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn-primary" onclick="downloadWhitePaper('government')">Download Complete White Paper</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional modals for consulting services, industries, etc. would continue here -->
+    <!-- Consulting Service Modals -->
+    <div id="assessmentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" onclick="closeModal('assessmentModal')">&times;</button>
+                <h2>Strategic Assessment & Planning</h2>
+            </div>
+            <div class="modal-body whitepaper-content">
+                <h3>Comprehensive AI Readiness Evaluation</h3>
+                <p>Before implementing any AI solution, successful organizations need a clear understanding of their current capabilities, market position, and transformation requirements.</p>
+                
+                <h3>Assessment Components</h3>
+                <ul>
+                    <li><strong>Technology Infrastructure Audit:</strong> Evaluation of current systems, data architecture, and integration capabilities</li>
+                    <li><strong>Skill Gap Analysis:</strong> Assessment of team capabilities and training requirements across departments</li>
+                    <li><strong>Competitive Landscape Evaluation:</strong> Analysis of market position and competitive AI adoption</li>
+                    <li><strong>Regulatory Compliance Mapping:</strong> Industry-specific requirement identification and compliance strategy</li>
+                    <li><strong>Use Case Prioritization:</strong> ROI-focused opportunity identification and implementation sequencing</li>
+                </ul>
+
+                <h3>Deliverables</h3>
+                <ul>
+                    <li>Executive-ready assessment report with strategic recommendations</li>
+                    <li>Detailed ROI projections for priority use cases</li>
+                    <li>Implementation timeline with resource requirements</li>
+                    <li>Risk assessment and mitigation strategies</li>
+                    <li>Change management and adoption roadmap</li>
+                </ul>
+
+                <h3>Investment & Timeline</h3>
+                <p><strong>Duration:</strong> 2-4 weeks depending on organizational complexity</p>
+                <p><strong>Investment:</strong> Contact for enterprise pricing tailored to your needs</p>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn-primary" onclick="bookConsultation('assessment')">Schedule Assessment Consultation</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="trainingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" onclick="closeModal('trainingModal')">&times;</button>
+                <h2>GenAI Application Engineer Training Program</h2>
+            </div>
+            <div class="modal-body whitepaper-content">
+                <h3>Build Internal GenAI Expertise</h3>
+                <p>Transform your team into GenAI experts with our comprehensive training program designed specifically for enterprise environments.</p>
+                
+                <h3>Four-Phase Development Program</h3>
+                
+                <h4>Phase 1: Foundation (0-3 months)</h4>
+                <ul>
+                    <li>AI/ML fundamentals and GenAI concepts</li>
+                    <li>Programming skills (Python, APIs, databases)</li>
+                    <li>Basic prompt engineering and LLM integration</li>
+                    <li>Hands-on project: Simple chatbot or document Q&A system</li>
+                </ul>
+
+                <h4>Phase 2: Core Building Blocks (3-6 months)</h4>
+                <ul>
+                    <li>Advanced RAG system implementation</li>
+                    <li>Multi-agent workflow development</li>
+                    <li>Production deployment and monitoring</li>
+                    <li>Hands-on project: Industry-specific AI application</li>
+                </ul>
+
+                <h4>Phase 3: Advanced Applications (6-12 months)</h4>
+                <ul>
+                    <li>Complex agent orchestration systems</li>
+                    <li>Multimodal AI integration</li>
+                    <li>Scalability and performance optimization</li>
+                    <li>Hands-on project: Enterprise-grade solution</li>
+                </ul>
+
+                <h4>Phase 4: Mastery & Innovation (12+ months)</h4>
+                <ul>
+                    <li>Custom model fine-tuning</li>
+                    <li>Research and development initiatives</li>
+                    <li>Thought leadership and community contribution</li>
+                    <li>Hands-on project: Breakthrough application development</li>
+                </ul>
+
+                <h3>Program Benefits</h3>
+                <ul>
+                    <li>Structured learning path with measurable milestones</li>
+                    <li>Industry-specific training materials and use cases</li>
+                    <li>Ongoing mentorship and support</li>
+                    <li>Portfolio development guidance</li>
+                    <li>Certification upon completion</li>
+                </ul>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn-primary" onclick="bookConsultation('training')">Discuss Training Program</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="implementationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" onclick="closeModal('implementationModal')">&times;</button>
+                <h2>Implementation Support Services</h2>
+            </div>
+            <div class="modal-body whitepaper-content">
+                <h3>Pilot to Production Excellence</h3>
+                <p>Transform your highest-impact use cases from concept to production-ready solutions with expert guidance throughout the development lifecycle.</p>
+                
+                <h3>Technical Implementation Services</h3>
+                
+                <h4>RAG System Development</h4>
+                <ul>
+                    <li>Advanced document processing and chunking strategies</li>
+                    <li>Vector database optimization and management</li>
+                    <li>Multi-modal data integration</li>
+                    <li>Performance tuning and scalability</li>
+                </ul>
+
+                <h4>Multi-Agent System Design</h4>
+                <ul>
+                    <li>Workflow automation and orchestration</li>
+                    <li>Role-based agent collaboration</li>
+                    <li>Human-in-the-loop integration</li>
+                    <li>Quality assurance and monitoring</li>
+                </ul>
+
+                <h4>AI-Assisted Development Integration</h4>
+                <ul>
+                    <li>Tool evaluation and selection (Cursor, Windsurf, Claude Code)</li>
+                    <li>Development workflow optimization</li>
+                    <li>Code quality and security frameworks</li>
+                    <li>Team training and adoption support</li>
+                </ul>
+
+                <h4>Production Deployment</h4>
+                <ul>
+                    <li>Infrastructure setup and optimization</li>
+                    <li>Monitoring and alerting systems</li>
+                    <li>Security and compliance implementation</li>
+                    <li>Performance optimization and scaling</li>
+                </ul>
+
+                <h3>Implementation Methodology</h3>
+                <ol>
+                    <li><strong>Discovery & Planning:</strong> Requirements gathering and architecture design</li>
+                    <li><strong>Pilot Development:</strong> MVP creation with core functionality</li>
+                    <li><strong>Testing & Validation:</strong> Performance testing and user acceptance</li>
+                    <li><strong>Production Deployment:</strong> Full-scale implementation with monitoring</li>
+                    <li><strong>Optimization & Support:</strong> Continuous improvement and maintenance</li>
+                </ol>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn-primary" onclick="bookConsultation('implementation')">Schedule Implementation Discussion</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="advisoryModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" onclick="closeModal('advisoryModal')">&times;</button>
+                <h2>Ongoing Advisory Services</h2>
+            </div>
+            <div class="modal-body whitepaper-content">
+                <h3>Strategic AI Partnership</h3>
+                <p>Maintain competitive advantage with continuous access to emerging AI capabilities and strategic guidance.</p>
+                
+                <h3>Monthly Strategic Reviews</h3>
+                <ul>
+                    <li>Technology landscape monitoring and analysis</li>
+                    <li>Competitive intelligence and market trends</li>
+                    <li>Innovation pipeline development and prioritization</li>
+                    <li>Strategic planning and roadmap updates</li>
+                </ul>
+
+                <h3>Quarterly Business Reviews</h3>
+                <ul>
+                    <li>Performance metrics analysis and optimization</li>
+                    <li>ROI assessment and improvement strategies</li>
+                    <li>Capability expansion planning</li>
+                    <li>Team development and skill advancement</li>
+                </ul>
+
+                <h3>Annual Strategic Planning</h3>
+                <ul>
+                    <li>Long-term AI strategy development</li>
+                    <li>Market positioning and competitive analysis</li>
+                    <li>Investment planning and resource allocation</li>
+                    <li>Innovation and R&D roadmap creation</li>
+                </ul>
+
+                <h3>Continuous Value Delivery</h3>
+                <ul>
+                    <li>Access to latest research and best practices</li>
+                    <li>Priority support for technical challenges</li>
+                    <li>Early access to new tools and methodologies</li>
+                    <li>Strategic guidance for emerging opportunities</li>
+                </ul>
+
+                <h3>Partnership Benefits</h3>
+                <ul>
+                    <li>Dedicated strategic advisor relationship</li>
+                    <li>Flexible engagement model based on your needs</li>
+                    <li>Access to extended network of AI experts</li>
+                    <li>Thought leadership and industry insights</li>
+                </ul>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn-primary" onclick="bookConsultation('advisory')">Explore Advisory Partnership</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" onclick="closeModal('contactModal')">&times;</button>
+                <h2>Join Our Founders Circle</h2>
+            </div>
+            <div class="modal-body">
+                <p>Get exclusive early access to Agentrify.AI's cutting-edge autonomous agent platform and strategic consulting services.</p>
+                
+                <h3>Founders Circle Benefits:</h3>
+                <ul>
+                    <li>Priority access to AgentNet™ platform beta</li>
+                    <li>Quarterly strategy sessions with Dr. Chen</li>
+                    <li>Exclusive research reports and market insights</li>
+                    <li>Early access to new product features</li>
+                    <li>Strategic consulting at preferred rates</li>
+                    <li>Network with other forward-thinking leaders</li>
+                </ul>
+
+                <div style="margin-top: 2rem; text-align: center;">
+                    <p><strong>Ready to lead the agentic revolution?</strong></p>
+                    <p>Contact us at: <strong>founders@agentrify.ai</strong></p>
+                    <button class="btn-primary" onclick="window.location.href='mailto:founders@agentrify.ai'">Send Email</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+                navbar.style.borderBottom = '1px solid rgba(255, 255, 255, 0.2)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+                navbar.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // White paper download function
+        function downloadWhitePaper(industry) {
+            const whitePapers = {
+                'finance': 'Financial Services: Autonomous Intelligence Revolution',
+                'healthcare': 'Healthcare: Patient-Centric Autonomous Systems',
+                'manufacturing': 'Manufacturing: Industry 4.0 Autonomous Operations',
+                'energy': 'Energy & Infrastructure: Smart Grid Autonomy',
+                'government': 'Government & Policy: Citizen-Centric Automation',
+                'supplychain': 'Supply Chain & Logistics: Autonomous Intelligence Revolution'
+            };
+            
+            const paperTitle = whitePapers[industry] || 'GenAI Strategy Guide';
+            alert(`Downloading: ${paperTitle}\n\nThis would normally trigger a PDF download after collecting contact information.\n\nFor access to our complete white paper library, please contact us at:\nEmail: contact@agentrify.ai\nPartners: partners@agentrify.ai`);
+        }
+
+        // Consultation booking function
+        function bookConsultation(type) {
+            const consultationTypes = {
+                'technical': 'Technical Deep Dive (90 minutes)', 
+                'strategic': 'Strategic Assessment Call (45 minutes)',
+                'executive': 'Executive Briefing (60 minutes)',
+                'implementation': 'Implementation Support Discussion',
+                'assessment': 'Strategic Assessment & Planning',
+                'training': 'Training Program Discussion',
+                'advisory': 'Advisory Partnership Exploration'
+            };
+            
+            const selectedType = consultationTypes[type] || 'General Consultation';
+            alert(`Booking ${selectedType}...\n\nThis would normally redirect to a calendar booking system.\n\nFor now, please contact us at:\nEmail: contact@agentrify.ai\nPartners: partners@agentrify.ai\nFounders Circle: founders@agentrify.ai`);
+        }
+
+        // Add interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create neural network background
+            createNeuralNetwork();
+            
+            // Create particle system
+            createParticleSystem();
+            
+            // Add hover effects to cards
+            const cards = document.querySelectorAll('.platform-card, .layer-card, .contact-item');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('no-hover')) {
+                        this.style.transform = 'translateY(-10px)';
+                    }
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Add click effects to buttons
+            const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .nav-cta');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Create ripple effect
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.classList.add('ripple');
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        });
+
+        // Neural Network Background
+        function createNeuralNetwork() {
+            const container = document.getElementById('neuralNetwork');
+            if (!container) return;
+
+            const nodes = [];
+            const connections = [];
+            const nodeCount = 20;
+
+            // Create nodes
+            for (let i = 0; i < nodeCount; i++) {
+                const node = document.createElement('div');
+                node.className = 'neural-node';
+                node.style.left = Math.random() * 100 + '%';
+                node.style.top = Math.random() * 100 + '%';
+                node.style.animationDelay = Math.random() * 3 + 's';
+                container.appendChild(node);
+                nodes.push({
+                    element: node,
+                    x: parseFloat(node.style.left),
+                    y: parseFloat(node.style.top)
+                });
+            }
+
+            // Create connections between nearby nodes
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const distance = Math.sqrt(
+                        Math.pow(nodes[i].x - nodes[j].x, 2) + 
+                        Math.pow(nodes[i].y - nodes[j].y, 2)
+                    );
+                    
+                    if (distance < 30) {
+                        const connection = document.createElement('div');
+                        connection.className = 'neural-connection';
+                        const angle = Math.atan2(nodes[j].y - nodes[i].y, nodes[j].x - nodes[i].x);
+                        const length = distance;
+                        
+                        connection.style.left = nodes[i].x + '%';
+                        connection.style.top = nodes[i].y + '%';
+                        connection.style.width = length + '%';
+                        connection.style.transform = `rotate(${angle}rad)`;
+                        connection.style.animationDelay = Math.random() * 4 + 's';
+                        
+                        container.appendChild(connection);
+                    }
+                }
+            }
+        }
+
+        // Particle System
+        function createParticleSystem() {
+            const container = document.getElementById('particles');
+            if (!container) return;
+
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particle.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(particle);
+
+                setTimeout(() => {
+                    particle.remove();
+                }, 8000);
+            }
+
+            // Create particles periodically
+            setInterval(createParticle, 2000);
+            
+            // Create initial particles
+            for (let i = 0; i < 5; i++) {
+                setTimeout(createParticle, i * 400);
+            }
+        }
+
+        // Add CSS for ripple effect
+        const style = document.createElement('style');
+        style.textContent = `
+            .ripple {
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.6);
+                transform: scale(0);
+                animation: ripple 0.6s ease-out;
+                pointer-events: none;
+            }
+            
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+            
+            .btn-primary, .btn-secondary, .nav-cta {
+                position: relative;
+                overflow: hidden;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
