@@ -1,0 +1,132 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A-RSI | Agentrify</title><meta name="description" content="A-RSI: application-scoped recursive self-improvement. A reference stack where the safety rules of a self-improving agent loop are enforced in code, not by convention.">
+<link rel="canonical" href="https://agentrifyai.com/a-rsi.html">
+<meta property="og:title" content="A-RSI | Agentrify"><meta property="og:description" content="A-RSI: application-scoped recursive self-improvement. A reference stack where the safety rules of a self-improving agent loop are enforced in code, not by convention."><meta property="og:type" content="website"><meta property="og:url" content="https://agentrifyai.com/a-rsi.html">
+<meta name="theme-color" content="#0A1226"><link rel="icon" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=61aa81c6"></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr"><div class="wrap hbar"><a class="logo" href="index.html" aria-label="Agentrify home"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11" fill="none" stroke="#2A3D68" stroke-width="2"/><path d="M16 5a11 11 0 0 1 10.4 14.6" fill="none" stroke="#FF6B57" stroke-width="2.6" stroke-linecap="round"/><path d="m27.6 16.2-1.2 3.6-3.4-1.6" fill="none" stroke="#FF6B57" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16" cy="16" r="3.6" fill="#7FD3FF"/></svg><span>agentrify<b>.</b></span></a>
+<button class="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+<nav class="nav" id="nav" aria-label="Main"><a href="platform.html">Platform</a><a href="governance.html">Governance</a><a href="architecture.html">Architecture</a><a href="use-cases.html">Use cases</a><a href="research.html">Research</a><a href="a-rsi.html" aria-current="page">A-RSI</a><a href="about.html">About</a><a class="cta" href="partners.html">Become a design partner</a></nav></div></header>
+<main id="main">
+<section class="phero"><div class="wrap"><span class="eyebrow">A-RSI framework</span><h1>Self-improvement that is <em>safe because it is scoped.</em></h1>
+<p class="lead">A-RSI, application-scoped recursive self-improvement, is the engineering behind Agentrify's Evolve layer. The loop may change only a declared set of components, is scored only by an evaluator it cannot touch, and is promoted only through a governor that is code rather than a model. Safety and application-specificity are the same design move.</p>
+<div class="btns" style="margin-top:28px"><a class="btn p" href="#stack">Get the reference stack</a><a class="btn g" href="#matrix">See the control matrix</a></div></div></section>
+
+<section class="sec"><div class="wrap"><div class="shead rv"><span class="eyebrow">Layer 1</span><h2>Three bands, <em>one return path.</em></h2>
+<p class="lead">A candidate change originates in the periphery, is scored in the frozen core, passes the governance gates, and is written back only through the governor. Nothing in the loop can touch the middle band.</p></div>
+<figure class="fig rv"><svg viewBox="0 0 760 440" role="img" aria-label="Three-layer A-RSI architecture: governance, frozen core, mutable periphery" font-family="IBM Plex Sans,system-ui,sans-serif" font-size="13">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8E9AB8"/></marker></defs>
+<g><rect x="24" y="20" width="700" height="104" rx="12" fill="#18294F" stroke="#2A3D68"/><text x="40" y="46" font-weight="600" fill="#F3F5FA">Governance layer</text><text x="180" y="46" font-size="12" fill="#8E9AB8">change control, budgets, staged promotion, earned autonomy</text>
+<rect x="40" y="64" width="156" height="44" rx="8" fill="none" stroke="#2A3D68"/><text x="118" y="91" text-anchor="middle" fill="#F3F5FA">Propose</text><rect x="212" y="64" width="156" height="44" rx="8" fill="none" stroke="#2A3D68"/><text x="290" y="91" text-anchor="middle" fill="#F3F5FA">Validate</text><rect x="384" y="64" width="156" height="44" rx="8" fill="none" stroke="#2A3D68"/><text x="462" y="91" text-anchor="middle" fill="#F3F5FA">Promote</text><rect x="556" y="64" width="156" height="44" rx="8" fill="none" stroke="#2A3D68"/><text x="634" y="91" text-anchor="middle" fill="#F3F5FA">Audit and rollback</text></g>
+<g><rect x="24" y="164" width="700" height="104" rx="12" fill="rgba(255,107,87,.10)" stroke="#FF6B57" stroke-width="1.5"/><text x="40" y="190" font-weight="600" fill="#F3F5FA">Frozen core</text><text x="140" y="190" font-size="12" fill="#8E9AB8">the loop cannot read-write any of this · hash-sealed by a human</text>
+<rect x="40" y="208" width="156" height="44" rx="8" fill="none" stroke="#2A3D68"/><text x="118" y="235" text-anchor="middle" fill="#F3F5FA">Base model</text><rect x="212" y="208" width="156" height="44" rx="8" fill="none" stroke="#2A3D68"/><text x="290" y="235" text-anchor="middle" fill="#F3F5FA">Safety policy</text><rect x="384" y="208" width="156" height="44" rx="8" fill="none" stroke="#2A3D68"/><text x="462" y="235" text-anchor="middle" fill="#F3F5FA">Evaluator</text><rect x="556" y="208" width="156" height="44" rx="8" fill="none" stroke="#2A3D68"/><text x="634" y="235" text-anchor="middle" fill="#F3F5FA">Provenance</text></g>
+<g><rect x="24" y="308" width="700" height="104" rx="12" fill="#18294F" stroke="#2A3D68"/><text x="40" y="334" font-weight="600" fill="#F3F5FA">Mutable periphery</text><text x="180" y="334" font-size="12" fill="#8E9AB8">the declared surface, the only things that change</text>
+<rect x="40" y="352" width="124" height="44" rx="8" fill="none" stroke="#7FD3FF"/><text x="102" y="379" text-anchor="middle" fill="#F3F5FA">Prompts</text><rect x="177" y="352" width="124" height="44" rx="8" fill="none" stroke="#7FD3FF"/><text x="239" y="379" text-anchor="middle" fill="#F3F5FA">Tools</text><rect x="314" y="352" width="124" height="44" rx="8" fill="none" stroke="#7FD3FF"/><text x="376" y="379" text-anchor="middle" fill="#F3F5FA">Skills</text><rect x="451" y="352" width="124" height="44" rx="8" fill="none" stroke="#7FD3FF"/><text x="513" y="379" text-anchor="middle" fill="#F3F5FA">Retrieval</text><rect x="588" y="352" width="124" height="44" rx="8" fill="none" stroke="#7FD3FF"/><text x="650" y="379" text-anchor="middle" fill="#F3F5FA">Adapters</text></g>
+<g fill="none" stroke="#8E9AB8" stroke-width="1.25"><path d="M102 308V272" marker-end="url(#ar)"/><path d="M118 164V128" marker-end="url(#ar)"/><path d="M724 86H744V374H728" marker-end="url(#ar)"/></g>
+<text x="112" y="294" font-size="12" fill="#8E9AB8">proposals</text><text x="128" y="150" font-size="12" fill="#8E9AB8">scored</text></svg>
+<figcaption>Rate, depth and magnitude bounds are parameters on the Validate and Promote gates. The evaluator's content is what makes the framework application-specific: swap the test suite and the same architecture serves a different application.</figcaption></figure>
+</div></section>
+
+<section class="sec alt"><div class="wrap"><div class="shead rv"><span class="eyebrow">Layer 2</span><h2>Separation of duties, <em>enforced in code.</em></h2>
+<p class="lead">Multi-agent supplies the separation; multi-model supplies the independence. No two of proposer, judge and critic share a model family, and the dashed barriers are typed views that raise when crossed.</p></div>
+<figure class="fig rv"><svg viewBox="0 0 760 470" role="img" aria-label="A-RSI role topology: governor and auditor, critic judge and evaluation suite, proposer adapters and skill registry" font-family="IBM Plex Sans,system-ui,sans-serif" font-size="13">
+<defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8E9AB8"/></marker></defs>
+<g><rect x="24" y="20" width="700" height="116" rx="12" fill="#18294F" stroke="#2A3D68"/><text x="40" y="46" font-weight="600" fill="#F3F5FA">Governance</text>
+<rect x="40" y="64" width="330" height="56" rx="8" fill="none" stroke="#2A3D68"/><text x="205" y="86" text-anchor="middle" font-weight="600" fill="#F3F5FA">Governor</text><text x="205" y="106" text-anchor="middle" font-size="12" fill="#8E9AB8">deterministic code, not a model</text>
+<rect x="386" y="64" width="330" height="56" rx="8" fill="none" stroke="#2A3D68"/><text x="551" y="86" text-anchor="middle" font-weight="600" fill="#F3F5FA">Auditor</text><text x="551" y="106" text-anchor="middle" font-size="12" fill="#8E9AB8">read-only, checks invariants and lineage</text></g>
+<line x1="24" y1="156" x2="560" y2="156" stroke="#8E9AB8" stroke-dasharray="4 4"/><text x="712" y="160" text-anchor="end" font-size="12" fill="#8E9AB8">information barrier</text>
+<g><rect x="24" y="176" width="700" height="116" rx="12" fill="rgba(255,107,87,.10)" stroke="#FF6B57" stroke-width="1.5"/><text x="40" y="202" font-weight="600" fill="#F3F5FA">Frozen core</text>
+<rect x="40" y="220" width="212" height="56" rx="8" fill="none" stroke="#2A3D68"/><text x="146" y="242" text-anchor="middle" font-weight="600" fill="#F3F5FA">Critic</text><text x="146" y="262" text-anchor="middle" font-size="12" fill="#8E9AB8">model C, rotated each cycle</text>
+<rect x="270" y="220" width="212" height="56" rx="8" fill="none" stroke="#2A3D68"/><text x="376" y="242" text-anchor="middle" font-weight="600" fill="#F3F5FA">Judge</text><text x="376" y="262" text-anchor="middle" font-size="12" fill="#8E9AB8">model B, blind to rationale</text>
+<rect x="500" y="220" width="212" height="56" rx="8" fill="none" stroke="#2A3D68"/><text x="606" y="242" text-anchor="middle" font-weight="600" fill="#F3F5FA">Eval suite</text><text x="606" y="262" text-anchor="middle" font-size="12" fill="#8E9AB8">held-out sets, provenance store</text></g>
+<line x1="24" y1="312" x2="560" y2="312" stroke="#8E9AB8" stroke-dasharray="4 4"/><text x="712" y="316" text-anchor="end" font-size="12" fill="#8E9AB8">information barrier</text>
+<g><rect x="24" y="332" width="700" height="116" rx="12" fill="#18294F" stroke="#2A3D68"/><text x="40" y="358" font-weight="600" fill="#F3F5FA">Mutable periphery</text>
+<rect x="40" y="376" width="212" height="56" rx="8" fill="none" stroke="#7FD3FF"/><text x="146" y="398" text-anchor="middle" font-weight="600" fill="#F3F5FA">Proposer</text><text x="146" y="418" text-anchor="middle" font-size="12" fill="#8E9AB8">model A, cheap, high volume</text>
+<rect x="270" y="376" width="212" height="56" rx="8" fill="none" stroke="#7FD3FF"/><text x="376" y="398" text-anchor="middle" font-weight="600" fill="#F3F5FA">Adapters</text><text x="376" y="418" text-anchor="middle" font-size="12" fill="#8E9AB8">the only weights the loop touches</text>
+<rect x="500" y="376" width="212" height="56" rx="8" fill="none" stroke="#7FD3FF"/><text x="606" y="398" text-anchor="middle" font-weight="600" fill="#F3F5FA">Skill registry</text><text x="606" y="418" text-anchor="middle" font-size="12" fill="#8E9AB8">promoted skills only</text></g>
+<g fill="none" stroke="#8E9AB8" stroke-width="1.25"><path d="M146 332V296" marker-end="url(#ar2)"/><path d="M252 248H270" marker-end="url(#ar2)"/><path d="M376 176V140" marker-end="url(#ar2)"/><path d="M724 92H744V404H728" marker-end="url(#ar2)"/></g></svg>
+<figcaption>The critic is a model but sits in the frozen core, so the proposer can never improve its way past its attacker. The governor is code so the control plane of the loop is not itself subject to the loop.</figcaption></figure>
+</div></section>
+
+<section class="sec"><div class="wrap"><div class="shead rv"><span class="eyebrow">Layer 3</span><h2>Scoped to the <em>application.</em></h2>
+<p class="lead">Each domain agent owns a slice of the surface and its own domain evaluations. One governor, one judge, one set of system-level guard metrics. A star, not a mesh: no agent can tune itself against another agent's behaviour.</p></div>
+<div class="g3">
+<div class="card rv"><span class="tag">Fast feedback</span><h3>Scoreable within hours</h3><p>The loop lives on the evaluator. If ground truth arrives in months, scope the loop to an intermediate step that has fast ground truth.</p></div>
+<div class="card rv"><span class="tag">Harness-bound</span><h3>Headroom in the scaffolding</h3><p>A-RSI improves prompts, tools, skills, retrieval and small adapters. If the errors come from what the base model does not know, the loop finds nothing.</p></div>
+<div class="card rv"><span class="tag">Volume</span><h3>Enough cases to refresh held-out sets</h3><p>The evaluator decays as the proposer saturates it. A steady stream of new cases, real or generated, keeps the acceptance rule honest.</p></div>
+</div>
+<p class="note-ill rv" style="margin-top:22px">Fits best: customer support, document processing, code generation, data extraction, research triage, compliance screening. Fits poorly: low-volume bespoke judgment, outcomes measured in quarters, tasks whose quality is in the model's knowledge rather than its scaffolding.</p>
+</div></section>
+
+<section class="sec alt" id="matrix"><div class="wrap"><div class="shead rv"><span class="eyebrow">Control matrix</span><h2>Each risk has a control, <em>evidence, and an owner.</em></h2>
+<p class="lead">Written so an assurance reviewer who does not understand the machine learning can still test it. Clause references are indicative mappings to ISO/IEC 42001 Annex A and NIST AI RMF 1.0.</p></div>
+<div class="twrap rv"><table class="tbl"><thead><tr><th>Risk</th><th>Control</th><th>Evidence</th><th>ISO 42001</th><th>NIST AI RMF</th></tr></thead><tbody>
+<tr><td>Loop modifies the evaluator or safety policy</td><td>Frozen paths hash-sealed by a named human and re-verified every cycle; a mismatch halts the loop</td><td><code>frozen.lock</code>, halted events</td><td>A.6.2.5, A.9.2</td><td>Govern 1.7, Manage 2.2</td></tr>
+<tr><td>Proposer and judge share blind spots</td><td>Independence rule: proposer, judge and critic on different model families, refused at config load</td><td>Role manifest in config</td><td>A.6.2.4</td><td>Measure 2.5</td></tr>
+<tr><td>Proposer argues the judge into acceptance</td><td>Blind evaluation: judge sees the diff and scores, never the rationale; typed views raise on breach</td><td>Barrier definitions in code</td><td>A.9.4</td><td>Govern 6.1</td></tr>
+<tr><td>Score rises while true quality falls</td><td>Acceptance rule applied on held-out data only; held-out sets refreshed on a cadence</td><td>Verdict events with before/after scores</td><td>A.6.2.6, A.8.4</td><td>Measure 2.3, 2.6</td></tr>
+<tr><td>Local gain breaks a global constraint</td><td>Guard metrics with tolerance measured at the application boundary</td><td>Guard-metric trend per promotion</td><td>A.6.1.2</td><td>Manage 1.3</td></tr>
+<tr><td>Unbounded or compounding change</td><td>Proposals per cycle, lineage depth, diff size and cycles-without-human bounds in the governor</td><td>Rejected-proposal log with reasons</td><td>A.6.2.2</td><td>Manage 2.3</td></tr>
+<tr><td>Change cannot be undone</td><td>Snapshot on every promotion; one-step rollback</td><td>Snapshot store, rolled-back events</td><td>A.6.2.8</td><td>Manage 2.4</td></tr>
+<tr><td>Capability creep</td><td>Tool, adapter and topology classes never earn automatic promotion</td><td>Change-class policy in config</td><td>A.9.3</td><td>Map 1.5, Manage 1.4</td></tr>
+<tr><td>Nobody can reconstruct why</td><td>Append-only provenance with lineage from any surface hash</td><td><code>provenance.jsonl</code></td><td>A.6.2.3, A.7.5</td><td>Govern 1.4, Map 3.4</td></tr>
+<tr><td>Governor is gamed</td><td>Governor is deterministic code outside the mutable surface, under its own change control</td><td>Version control history</td><td>A.6.2.5</td><td>Govern 1.2</td></tr>
+</tbody></table></div></div></section>
+
+<section class="sec" id="stack"><div class="wrap"><div class="shead rv"><span class="eyebrow">Reference stack</span><h2>Runs offline, <em>out of the box.</em></h2>
+<p class="lead">A small Python package where every band is a module and every rule above is enforced in code. It ships with a support-triage example and a mock model, so the whole loop can be inspected before a single API key is involved.</p></div>
+<div class="g2">
+<div class="rv"><div class="term"><span class="c"># seal, check, run</span>
+<span class="k">$</span> arsi seal   examples/support_triage --approver "owner"
+<span class="k">$</span> arsi cycle  examples/support_triage -n 1
+cycle 3  surface 890abbc2bcf9
+  baseline held-out: accuracy 0.3412  policy_compliance 1.0
+  system_prompt: diff 132 chars | accuracy <span class="ok">0.5059</span> | <span class="hl">pending_human</span>
+      - change class is human-gated
+<span class="k">$</span> arsi approve examples/support_triage 0 --approver "owner"
+promoted -> 028aca53399d
+
+<span class="c"># after two clean approvals the prompt class earns autonomy</span>
+cycle 13  accuracy <span class="ok">0.6824</span>  guards held  promoted (shadow)
+cycle 14  accuracy <span class="ok">0.7647</span>  guards held  promoted (shadow)
+cycle 15  accuracy <span class="ok">0.8824</span>  guards held  promoted (shadow)
+cycle 16  accuracy <span class="ok">0.9294</span>  guards held  promoted (shadow)
+
+<span class="c"># a proposal that stripped the refusal instruction</span>
+  system_prompt: accuracy 0.325 | <span class="no">rejected</span>
+      - judge veto: diff removes the refusal instruction
+
+<span class="k">$</span> arsi rollback examples/support_triage
+rolled back to 500044795035</div></div>
+<div class="card rv"><span class="tag">arsi init</span><h3>Six steps to a new application</h3><ul>
+<li>The application and its fast-feedback check</li>
+<li>The mutable surface: each file the loop may rewrite, with its change class</li>
+<li>The evaluator: primary metrics with minimum effect, guard metrics with tolerance</li>
+<li>Roles and model families, independence rule enforced</li>
+<li>Bounds: proposals per cycle, lineage depth, cycles without a human</li>
+<li>Change-class policy: autonomy earned per class; tool, adapter and topology stay human-gated</li></ul>
+<p style="margin-top:18px">Then implement <code class="mono">score()</code> and <code class="mono">failures()</code> for your application and fill three case files. Going live is three lines of config.</p>
+<div class="btns" style="margin-top:20px"><a class="btn p" href="downloads/arsi-stack-0.1.0.zip">Download arsi-stack 0.1.0</a></div>
+<p style="margin-top:14px;font-size:14px;color:var(--mute)">Apache 2.0. Python 3.10+. Mock, Anthropic, OpenAI and Ollama providers.</p></div>
+</div></div></section>
+
+<section class="sec paper"><div class="wrap"><div class="shead rv"><span class="eyebrow">Grounding</span><h2>Where the design <em>comes from.</em></h2>
+<p class="lead">The 2026 literature draws the same line: bounded self-refinement against a fixed evaluator is convergent and already industrial practice; open-ended self-improvement faces impossibility results.</p></div>
+<div class="elist">
+<a class="rv" href="https://arxiv.org/abs/2607.07663" target="_blank" rel="noopener"><span class="n">Survey</span><div><h3>From bounded self-refinement to autonomous research loops</h3><p>The central cut between evaluable refinement and divergent open-ended RSI.</p></div><span class="go">Read ↗</span></a>
+<a class="rv" href="https://arxiv.org/abs/2610.21646" target="_blank" rel="noopener"><span class="n">Theory</span><div><h3>The self-improvement problem (DFKI)</h3><p>Guarantees collapse in the general setting and are recoverable under bounded evaluation and a finite proposal budget.</p></div><span class="go">Read ↗</span></a>
+<a class="rv" href="https://arxiv.org/abs/2603.28650" target="_blank" rel="noopener"><span class="n">Theory</span><div><h3>Limits of safety verification for self-improving systems</h3><p>Bounded risk and unbounded utility as dual conditions on the acceptance gate.</p></div><span class="go">Read ↗</span></a>
+<a class="rv" href="https://arxiv.org/abs/2609.26457" target="_blank" rel="noopener"><span class="n">Practice</span><div><h3>Recursive self-improvement of AI research agents (Weco)</h3><p>Harness-level improvement with the base model frozen; gains transferred to unseen domains.</p></div><span class="go">Read ↗</span></a>
+<a class="rv" href="https://decagon.ai/blog/duetbench-2" target="_blank" rel="noopener"><span class="n">Production</span><div><h3>Measuring agent self-improvement in production (Decagon)</h3><p>Judge checked against human ground truth; reversions under 15% of changes.</p></div><span class="go">Read ↗</span></a>
+</div></div></section>
+<section class="band"><div class="wrap"><div><h2>Put A-RSI to work on one application.</h2><p>The first deliverable is never the loop. It is the evaluator and the surface declaration, and they are worth having even if the loop never switches on.</p></div><a class="btn" href="partners.html">Apply to be a design partner →</a></div></section></main>
+<footer class="ftr"><div class="wrap"><div class="fgrid">
+<div><a class="logo" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11" fill="none" stroke="#2A3D68" stroke-width="2"/><path d="M16 5a11 11 0 0 1 10.4 14.6" fill="none" stroke="#FF6B57" stroke-width="2.6" stroke-linecap="round"/><path d="m27.6 16.2-1.2 3.6-3.4-1.6" fill="none" stroke="#FF6B57" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16" cy="16" r="3.6" fill="#7FD3FF"/></svg><span>agentrify<b>.</b></span></a><p style="margin-top:14px;max-width:340px">The platform for building multi-model, multi-agent systems that improve against business value, under human governance.</p></div>
+<div><h4>Platform</h4><ul><li><a href="platform.html#studio">Studio</a></li><li><a href="platform.html#evals">Evals</a></li><li><a href="platform.html#evolve">Evolve</a></li><li><a href="platform.html#value">Value</a></li></ul></div>
+<div><h4>Company</h4><ul><li><a href="governance.html">Governance</a></li><li><a href="research.html">Research</a></li><li><a href="about.html">About</a></li><li><a href="partners.html">Design partners</a></li></ul></div>
+<div><h4>Contact</h4><ul><li><a href="mailto:consulting@kiros-intelligence.com">consulting@kiros-intelligence.com</a></li><li><a href="https://kiros-intelligence.com" target="_blank" rel="noopener">Kiros Intelligence Group ↗</a></li><li><a href="https://hypermindq.ai" target="_blank" rel="noopener">Praetor ↗</a></li></ul></div>
+</div><div class="fbase"><span>© 2026 Agentrify</span><span>The platform is in development. Capabilities described are planned and may change before release.</span></div></div></footer>
+<script src="site.js?v=4721fe3c"></script></body></html>

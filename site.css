@@ -254,3 +254,16 @@ p+p{margin-top:14px}
 .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 .note-ill{font-size:14px;color:var(--mute);margin-top:14px}
+
+/* a-rsi page */
+.fig{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px;margin:26px 0}
+.fig svg{display:block;width:100%;height:auto}
+.fig figcaption{margin-top:12px;color:var(--mute);font-size:15px}
+.tbl{width:100%;border-collapse:collapse;font-size:15px;margin-top:22px}
+.tbl th,.tbl td{text-align:left;vertical-align:top;padding:12px 10px;border-bottom:1px solid var(--line)}
+.tbl th{font:600 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ice)}
+.tbl td{color:var(--soft)}.tbl td:first-child{color:var(--ink)}
+.tbl code,.term code{font-family:var(--mono);font-size:14px;color:var(--ice)}
+.twrap{overflow-x:auto}
+.term{background:#070D1C;border:1px solid var(--line);border-radius:12px;padding:20px 22px;font:14px/1.6 var(--mono);color:var(--soft);overflow-x:auto;white-space:pre}
+.term .k{color:var(--ice)}.term .ok{color:var(--ok)}.term .no{color:var(--bad)}.term .c{color:var(--mute)}.term .hl{color:var(--accent)}
